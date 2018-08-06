@@ -1,9 +1,53 @@
-/*显示元素*/
-.show {
-  display: block !important;
+@mixin ell() {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-/*不显示元素*/
-.hide {
-  display: none !important;
+@mixin img {
+  position: relative;
+  padding-top: percentage(200/750);
+  height: 0;
+  overflow: hidden;
+  .img {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
+
+@mixin arrow() {
+  position: relative;
+  &:after {
+    content: "";
+    position: absolute;
+    top: calc(50% - #{rpx(8)});
+    right: rpx(4);
+    display: inline-block;
+    height: rpx(16);
+    width: rpx(16);
+    border-width: rpx(4) rpx(4) 0 0;
+    border-style: solid;
+    border-color: #C0C0C0;
+    transform: rotateZ(45deg);
+  }
+}
+
+@mixin border() {
+  position: relative;
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+
 }

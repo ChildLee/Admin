@@ -4,6 +4,14 @@
   box-sizing: border-box;
 }
 
+//设计图宽度
+$width: 750 !default;
+
+html {
+  //移动端自适应字体
+  font-size: calc(16 / #{$width} * 100vw);
+}
+
 /*样式重置*/
 body, p, ul, ol, form, input, textarea, select, th, td, dl, dd, h1, h2, h3, h4, h5, h6 {
   /*去边距*/
