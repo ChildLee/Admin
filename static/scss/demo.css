@@ -1,0 +1,101 @@
+/********************demo********************/
+/********************reboot********************/
+*,
+*::before,
+*::after {
+  box-sizing: border-box; }
+
+html {
+  font-size: calc(32 / 750 * 100vw); }
+
+body, p, ul, ol, th, td, dl, dd, h1, h2, h3, h4, h5, h6, form, input, select, textarea {
+  margin: 0;
+  padding: 0; }
+
+em {
+  font-style: normal; }
+
+li {
+  list-style-type: none; }
+
+a {
+  text-decoration: none; }
+
+img {
+  border: none;
+  vertical-align: top; }
+
+table {
+  border-collapse: collapse; }
+
+input, textarea {
+  outline: none; }
+
+textarea {
+  resize: none;
+  overflow: auto; }
+
+/********************common********************/
+.show {
+  display: block !important; }
+
+.hide {
+  display: none !important; }
+
+small, .small {
+  font-size: 80%; }
+
+.process {
+  padding: 0.9375rem; }
+.process .process-item {
+  position: relative;
+  padding: 0.46875rem 0;
+  font-size: 0.875rem; }
+  .process .process-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -0.0625rem;
+    height: 100%;
+    border-left: 0.125rem solid #6610f2; }
+  .process .process-item:first-child::before {
+    top: 50%;
+    height: 50%; }
+  .process .process-item:last-child::before {
+    top: 0;
+    height: 50%; }
+  .process .process-item::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - 0.46875rem);
+    left: -0.46875rem;
+    width: 0.9375rem;
+    height: 0.9375rem;
+    border-radius: 50%;
+    background-color: #6610f2; }
+  .process .process-item .item-content {
+    margin-left: 0.9375rem;
+    font-size: 0.875rem; }
+    .process .process-item .item-content .desc-date {
+      font-size: 0.6875rem; }
+.process .item-selected::before {
+  border-left: 0.125rem solid red; }
+.process .item-selected::after {
+  background-color: red; }
+
+/********************icon********************/
+.cell {
+  border: 1px solid pink;
+  position: relative; }
+  .cell::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 0.25rem);
+    right: 0.59375rem;
+    display: inline-block;
+    height: 0.5rem;
+    width: 0.5rem;
+    border-width: 0.125rem 0.125rem 0 0;
+    border-style: solid;
+    border-color: #C0C0C0;
+    transform: rotateZ(45deg); }
