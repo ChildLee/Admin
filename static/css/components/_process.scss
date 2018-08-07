@@ -1,0 +1,71 @@
+//<div class="process">
+//  <div class="process-item">
+//    <div class="item-content">
+//      <div class="desc">您提交了订单,请等待系统确认</div>
+//      <div class="desc-date">2018-06-01 15:30:00</div>
+//    </div>
+//  </div>
+//
+//  <div class="process-item item-selected">
+//    <div class="item-content">
+//      <div class="desc">您的订单已确认</div>
+//      <div class="desc-date">2018-06-01 15:30:00</div>
+//    </div>
+//  </div>
+//</div>
+.process {
+  & {
+    padding: px2rem(30);
+  }
+
+  .process-item {
+    position: relative;
+    padding: px2rem(15) 0;
+    font-size: px2rem(28);
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: px2rem(-2);
+      height: 100%;
+      border-left: px2rem(4) solid $indigo;
+    }
+    &:first-child::before {
+      top: 50%;
+      height: 50%;
+    }
+    &:last-child::before {
+      top: 0;
+      height: 50%;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: calc(50% - #{px2rem(15)});
+      left: px2rem(-15);
+      width: px2rem(30);
+      height: px2rem(30);
+      border-radius: 50%;
+      background-color: $indigo;
+    }
+
+    .item-content {
+      margin-left: px2rem(30);
+      font-size: px2rem(28);
+      .desc-date {
+        font-size: px2rem(22);
+      }
+    }
+  }
+
+  .item-selected {
+    &::before {
+      border-left: px2rem(4) solid red;
+    }
+    &::after {
+      background-color: red;
+    }
+  }
+}

@@ -6,7 +6,7 @@
 
 @mixin img {
   position: relative;
-  padding-top: percentage(200/750);
+  padding-top: percentage(200/#{$width});
   height: 0;
   overflow: hidden;
   .img {
@@ -22,12 +22,12 @@
   &:after {
     content: "";
     position: absolute;
-    top: calc(50% - #{rpx(8)});
-    right: rpx(4);
+    top: calc(50% - #{px2rem(8)});
+    right: px2rem(4);
     display: inline-block;
-    height: rpx(16);
-    width: rpx(16);
-    border-width: rpx(4) rpx(4) 0 0;
+    height: px2rem(16);
+    width: px2rem(16);
+    border-width: px2rem(4) px2rem(4) 0 0;
     border-style: solid;
     border-color: #C0C0C0;
     transform: rotateZ(45deg);
@@ -49,5 +49,4 @@
     transform-origin: 0 0;
     pointer-events: none;
   }
-
 }

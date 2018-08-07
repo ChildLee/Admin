@@ -1,8 +1,9 @@
-//重置样式
-@import "reboot";
-//通用样式
-@import "common";
-//变量
+@charset "UTF-8";
+
 @import "var";
 @import "functions";
 @import "mixins";
+@import "reboot";
+@import "common";
+@import "components";
+@import "icon";

@@ -1,9 +1,11 @@
-/*显示元素*/
 .show {
   display: block !important;
 }
 
-/*不显示元素*/
 .hide {
   display: none !important;
+}
+
+small, .small {
+  font-size: 80%;
 }
