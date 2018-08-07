@@ -1,7 +1,45 @@
+// 省略号
 @mixin ell() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+// 箭头
+@mixin arrow($right:15) {
+  // $right距离右边距离
+  position: relative;
+  &::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - #{px2rem(8)});
+    right: px2rem(4+$right);
+    display: inline-block;
+    height: px2rem(16);
+    width: px2rem(16);
+    border-width: px2rem(4) px2rem(4) 0 0;
+    border-style: solid;
+    border-color: #C0C0C0;
+    transform: rotateZ(45deg);
+  }
+}
+
+// 底边框
+@mixin border() {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    border-bottom: 1px solid #ddd;
+    box-sizing: border-box;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
 }
 
 @mixin img {
@@ -14,39 +52,5 @@
     position: absolute;
     left: 0;
     top: 0;
-  }
-}
-
-@mixin arrow() {
-  position: relative;
-  &:after {
-    content: "";
-    position: absolute;
-    top: calc(50% - #{px2rem(8)});
-    right: px2rem(4);
-    display: inline-block;
-    height: px2rem(16);
-    width: px2rem(16);
-    border-width: px2rem(4) px2rem(4) 0 0;
-    border-style: solid;
-    border-color: #C0C0C0;
-    transform: rotateZ(45deg);
-  }
-}
-
-@mixin border() {
-  position: relative;
-  &:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 200%;
-    height: 200%;
-    border-bottom: 1px solid #ddd;
-    box-sizing: border-box;
-    transform: scale(.5);
-    transform-origin: 0 0;
-    pointer-events: none;
   }
 }
