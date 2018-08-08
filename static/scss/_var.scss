@@ -20,6 +20,9 @@ $teal  : #20c997 !default;
 $cyan  : #17a2b8 !default;
 
 // 设计图宽度
-$width: 750      !default;
+$rootWidth: 750      !default;
 // 根字体大小
 $rootSize:32     !default;
+
+//排除最后一个
+$not-last:':not(:last-child)'

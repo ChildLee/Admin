@@ -1,8 +1,16 @@
-/********************demo********************/
 @import "main";
 
-//
+/********************demo********************/
+
+.img-box {
+  @include img(200);
+}
+
 .cell {
-  border: 1px solid pink;
-  @include arrow;
+  @include arrow();
+  @include border($not-last);
+  div {
+    width: px2rem(200);
+    @include ell;
+  }
 }

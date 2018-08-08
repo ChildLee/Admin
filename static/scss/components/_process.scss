@@ -1,35 +1,111 @@
-//<div class="process">
+//<div class="process-x">
 //  <div class="process-item">
 //    <div class="item-content">
-//      <div class="desc">您提交了订单,请等待系统确认</div>
-//      <div class="desc-date">2018-06-01 15:30:00</div>
+//      <div class="content-number">1</div>
+//      <div class="content-name">信息核实中</div>
 //    </div>
 //  </div>
-//
 //  <div class="process-item item-selected">
 //    <div class="item-content">
-//      <div class="desc">您的订单已确认</div>
-//      <div class="desc-date">2018-06-01 15:30:00</div>
+//      <div class="content-number">2</div>
+//      <div class="content-name">信息核实结果</div>
 //    </div>
 //  </div>
 //</div>
-.process {
-  & {
-    padding: px2rem(30);
-  }
+.process-x {
+  display: flex;
+  text-align: center;
+  counter-reset: number 0;
+  .process-item {
+    position: relative;
+    & {
+      flex: 1
+      // 左右靠边时用下面,并注释flex: 1,至少3个流程
+      //&:not(:first-child):not(:last-child) {
+      //  flex: 1;
+      //}
+    }
+    // 线
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -2;
+      top: px2rem(20-2);
+      left: 0;
+      width: 100%;
+      border-top: px2rem(4) solid #c5c3c3;
+    }
 
+    &:first-child::before {
+      left: 50%;
+      width: 50%;
+    }
+    &:last-child::before {
+      left: 0;
+      width: 50%;
+    }
+    // 圆
+    &::after {
+      counter-increment: number 1;
+      content: counters(number, '');
+      position: absolute;
+      z-index: -1;
+      top: 0;
+      left: calc(50% - #{px2rem(20)});
+      width: px2rem(40);
+      height: px2rem(40);
+      border-radius: 50%;
+      font-size: px2rem(36);
+      color: #fff;
+      background-color: #c5c3c3;
+    }
+    .item-content {
+      margin-top: px2rem(40);
+    }
+  }
+  .item-selected {
+    &:before {
+      border-color: red;
+    }
+    &::after {
+      background-color: red;
+    }
+  }
+}
+
+// 自定义内容样式
+.process-x {
+  .item-content {
+    font-size: px2rem(28);
+  }
+}
+
+//<div class="process-y">
+//  <div class="process-item">
+//    <div class="item-content">
+//      <div>您提交了订单,请等待系统确认</div>
+//      <div class="content-date">2018-06-01 15:30:00</div>
+//    </div>
+//  </div>
+//  <div class="process-item item-selected">
+//    <div class="item-content">
+//      <div>您的订单已确认</div>
+//      <div class="content-date">2018-06-01 15:30:00</div>
+//    </div>
+//  </div>
+//</div>
+.process-y {
+  padding: px2rem(30);
   .process-item {
     position: relative;
     padding: px2rem(15) 0;
-    font-size: px2rem(28);
-
     &::before {
       content: '';
       position: absolute;
       top: 0;
       left: px2rem(-2);
       height: 100%;
-      border-left: px2rem(4) solid $indigo;
+      border-left: px2rem(4) solid #c5c3c3;
     }
     &:first-child::before {
       top: 50%;
@@ -39,7 +115,6 @@
       top: 0;
       height: 50%;
     }
-
     &::after {
       content: '';
       position: absolute;
@@ -48,24 +123,28 @@
       width: px2rem(30);
       height: px2rem(30);
       border-radius: 50%;
-      background-color: $indigo;
+      background-color: #c5c3c3;
     }
-
     .item-content {
       margin-left: px2rem(30);
-      font-size: px2rem(28);
-      .desc-date {
-        font-size: px2rem(22);
-      }
     }
   }
-
   .item-selected {
     &::before {
       border-left: px2rem(4) solid red;
     }
     &::after {
       background-color: red;
+    }
+  }
+}
+
+// 自定义内容样式
+.process-y {
+  .item-content {
+    font-size: px2rem(28);
+    .content-date {
+      font-size: px2rem(22);
     }
   }
 }
