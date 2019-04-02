@@ -1,3 +1,0 @@
-@function px2rem($px:0) {
-  @return $px / $rootSize * 1rem;
-}

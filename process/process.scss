@@ -1,3 +1,5 @@
+@import "../scss/common";
+
 //<div class="process-x">
 //  <div class="process-item">
 //    <div class="item-content">
@@ -16,8 +18,10 @@
   display: flex;
   text-align: center;
   counter-reset: number 0;
+
   .process-item {
     position: relative;
+
     & {
       flex: 1
       // 左右靠边时用下面,并注释flex: 1,至少3个流程
@@ -25,6 +29,7 @@
       //  flex: 1;
       //}
     }
+
     // 线
     &::before {
       content: '';
@@ -40,10 +45,12 @@
       left: 50%;
       width: 50%;
     }
+
     &:last-child::before {
       left: 0;
       width: 50%;
     }
+
     // 圆
     &::after {
       counter-increment: number 1;
@@ -59,14 +66,17 @@
       color: #fff;
       background-color: #c5c3c3;
     }
+
     .item-content {
       margin-top: px2rem(40);
     }
   }
+
   .item-selected {
     &:before {
       border-color: red;
     }
+
     &::after {
       background-color: red;
     }
@@ -96,9 +106,11 @@
 //</div>
 .process-y {
   padding: px2rem(30);
+
   .process-item {
     position: relative;
     padding: px2rem(15) 0;
+
     &::before {
       content: '';
       position: absolute;
@@ -107,14 +119,17 @@
       height: 100%;
       border-left: px2rem(4) solid #c5c3c3;
     }
+
     &:first-child::before {
       top: 50%;
       height: 50%;
     }
+
     &:last-child::before {
       top: 0;
       height: 50%;
     }
+
     &::after {
       content: '';
       position: absolute;
@@ -125,14 +140,17 @@
       border-radius: 50%;
       background-color: #c5c3c3;
     }
+
     .item-content {
       margin-left: px2rem(30);
     }
   }
+
   .item-selected {
     &::before {
       border-left: px2rem(4) solid red;
     }
+
     &::after {
       background-color: red;
     }
@@ -143,6 +161,7 @@
 .process-y {
   .item-content {
     font-size: px2rem(28);
+
     .content-date {
       font-size: px2rem(22);
     }

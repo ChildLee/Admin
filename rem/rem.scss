@@ -1,6 +1,4 @@
-@import "main";
-
-/********************demo********************/
+@import "../scss/common";
 
 .img-box {
   @include img(200);
@@ -9,6 +7,7 @@
 .cell {
   @include arrow();
   @include border($not-last);
+
   div {
     width: px2rem(200);
     @include ell;

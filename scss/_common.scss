@@ -1,0 +1,153 @@
+/********************icon********************/
+@import "icon";
+
+$gray-100: #f8f9fa !default;
+$gray-200: #e9ecef !default;
+$gray-300: #dee2e6 !default;
+$gray-400: #ced4da !default;
+$gray-500: #adb5bd !default;
+$gray-600: #6c757d !default;
+$gray-700: #495057 !default;
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+
+$blue: #007bff !default;
+$indigo: #6610f2 !default;
+$purple: #6f42c1 !default;
+$pink: #e83e8c !default;
+$red: #dc3545 !default;
+$orange: #fd7e14 !default;
+$yellow: #ffc107 !default;
+$green: #28a745 !default;
+$teal: #20c997 !default;
+$cyan: #17a2b8 !default;
+
+// 设计图宽度
+$rootWidth: 750 !default;
+// 根字体大小
+$rootSize: 32 !default;
+
+//排除最后一个
+$not-last: ':not(:last-child)';
+
+@function px2rem($px:0) {
+  @return $px / $rootSize * 1rem;
+}
+
+// 省略号
+@mixin ell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// 箭头
+@mixin arrow($right:15) {
+  // $right距离右边距离
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    top: calc(50% - #{px2rem(8)});
+    right: px2rem(4+$right);
+    display: inline-block;
+    width: px2rem(16);
+    height: px2rem(16);
+    border-width: px2rem(4) px2rem(4) 0 0;
+    border-style: solid;
+    border-color: #C0C0C0;
+    transform: rotateZ(45deg);
+  }
+}
+
+// 底边框
+@mixin border($last:'') {
+  position: relative;
+  &#{$last}::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    box-sizing: border-box;
+    border-bottom: 1px solid #ddd;
+    transform: scale(.5);
+    transform-origin: 0 0;
+    pointer-events: none;
+  }
+}
+
+// 图片高度自适应
+@mixin img($height:400) {
+  position: relative;
+  padding-top: percentage($height / $rootWidth);
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+// 图片高度固定
+@mixin bg-img($height:400,$url:'https://picsum.photos/1000/400') {
+  height: #{$height}px;
+  background: url($url) center center;
+  background-size: cover;
+}
+
+/********************reboot********************/
+html {
+  // 移动端自适应字体
+  font-size: calc(#{$rootSize} / #{$rootWidth} * 100vw);
+  font-family: "Arial", "Microsoft YaHei", "黑体", "宋体", sans-serif;
+}
+
+body, p, ul, ol, th, td, dl, dd, h1, h2, h3, h4, h5, h6, form, input, select, textarea {
+  // 去边距
+  margin: 0;
+  padding: 0;
+}
+
+em {
+  // 将斜体变成正常字体
+  font-style: normal;
+}
+
+li {
+  // 去圆点
+  list-style-type: none;
+}
+
+a {
+  // 去下划线
+  text-decoration: none;
+}
+
+img {
+  // 去边框
+  border: none;
+  // 顶部对齐
+  vertical-align: top;
+}
+
+table {
+  // 合并边框
+  border-collapse: collapse;
+}
+
+input, textarea {
+  // 获取焦点边框不变色
+  outline: none;
+}
+
+textarea {
+  // 不能调整尺寸
+  resize: none;
+  // 显示滚动条
+  overflow: auto;
+}
+
+/********************content********************/

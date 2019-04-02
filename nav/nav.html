@@ -1,0 +1,91 @@
+﻿<!doctype html>
+<html lang="ch">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="nav.css">
+</head>
+<body>
+<div class="nav">
+  <div id="nav-mini" class="nav-top">
+    <i class="icon icon-menu"></i>
+  </div>
+
+  <ul class="nav-list">
+    <li class="nav-menu">
+      <a class="nav-title" href="javascript:" title="用户管理">
+        <i class="icon icon-admin"></i><span>用户管理</span>
+      </a>
+      <ul>
+        <li><a href="javascript:"><span>菜单1-1</span></a></li>
+        <li><a href="javascript:"><span>菜单1-2</span></a></li>
+        <li class="nav-menu">
+          <a class="nav-title" href="javascript:" title="角色管理">
+            <i class="icon icon-role"></i><span>角色管理</span>
+          </a>
+          <ul>
+            <li><a href="javascript:"><span>角色1-3-1</span></a></li>
+            <li><a href="javascript:"><span>角色1-3-2</span></a></li>
+            <li class="nav-menu">
+              <a class="nav-title" href="javascript:">
+                <i class="icon icon-access"></i><span>权限</span>
+              </a>
+              <ul>
+                <li><a href="javascript:"><span>权限1</span></a></li>
+                <li><a href="javascript:"><span>权限2</span></a></li>
+                <li><a href="javascript:"><span>权限3</span></a></li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li class="nav-menu">
+      <a class="nav-title" href="javascript:" title="导航管理">
+        <i class="icon icon-nav"></i><span>导航管理</span>
+      </a>
+      <ul>
+        <li><a href="javascript:"><span>导航1</span></a></li>
+        <li class="nav-menu">
+          <a class="nav-title" href="javascript:" title="导航管理">
+            <i class="icon icon-role"></i><span>导航管理</span>
+          </a>
+          <ul>
+            <li><a href="javascript:"><span>导航1</span></a></li>
+            <li><a href="javascript:"><span>导航2</span></a></li>
+          </ul>
+        </li>
+        <li><a href="javascript:"><span>导航2</span></a></li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
+</body>
+<script>
+  let navMini = document.querySelector('#nav-mini')
+  navMini.addEventListener('click', function () {
+    let nav = document.querySelector('.nav')
+    if (nav.className.includes('nav-mini')) {
+      nav.classList.remove('nav-mini')
+    } else {
+      nav.classList.add('nav-mini')
+    }
+  })
+
+  let menus = document.querySelectorAll('.nav .nav-title')
+  menus.forEach(menu => {
+    menu.addEventListener('click', function () {
+      let item = this.parentElement
+      if (item.className.includes('active')) {
+        item.classList.remove('active')
+      } else {
+        item.classList.add('active')
+      }
+    })
+  })
+</script>
+</html>
